@@ -46,11 +46,20 @@ The framework integrates:
 
 The three plant models share a common high-level architecture so that plant fidelity can be changed without redesigning the complete control and evaluation workflow.
 
+<p align="center">
+  <img src="framework_overview.png" alt="Framework overview" width="900">
+</p>
+
+
+
 ---
 
 ## Demonstration Videos
 
+**Live 3D simulation:** Demonstration of the quadrotor simulation with real-time 3D trajectory visualization and live flight-state monitoring.
 
+
+**Simscape Multibody visualization:** Demonstration of the L3 physical model running in Simscape Multibody using Mechanics Explorer.
 
 ---
 
@@ -108,43 +117,6 @@ Update the model with `Ctrl + D` if required, then press **Run**.
 
 ---
 
-## Repository Structure
-
-```text
-.
-├── CAD/
-│   ├── Airframe.step
-│   ├── Propeller_CCW.step
-│   └── Propeller_CW.step
-│
-├── ICRA2027 results/
-├── results/
-│
-├── UAV_Research_Environment.slx
-├── initialize_project.m
-├── Environment.m
-├── UAV_analytical.m
-├── UAV_block.m
-├── UAV_simscape.m
-├── UAV_autopilot.m
-├── UAV_sensors.m
-├── UAV_state_estimator.m
-├── UAV_trajectories.m
-├── UAV_operator_protocols.m
-├── uav_remote_gui.m
-│
-├── plot_controller_results.m
-├── plot_estimator_results.m
-├── plot_mission_results.m
-├── plot_touchdown_diagnostics.m
-├── plot_trajectory_3d.m
-│
-├── LICENSE
-└── README.md
-```
-
----
-
 ## Study Summary and Main Finding
 
 This framework was developed to investigate whether increasing plant-model fidelity changes controller-evaluation conclusions when the rest of the benchmark is kept as consistent as possible.
@@ -177,8 +149,4 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 
 ## Preliminary Release Notice
 
-This repository is an initial functional research release and should be considered a working research snapshot rather than a final software distribution.
-
-Although the framework has been tested for the study presented with this release, this first version may still contain implementation errors, compatibility issues, incomplete documentation, numerical inconsistencies, or other unintended behavior.
-
-The repository is provided primarily to document and reproduce the current research workflow. Future versions may include corrections, refinements, additional validation, and improvements to usability and documentation.
+This repository is an initial functional research release and should be considered a working research snapshot rather than a final software distribution. The repository is provided primarily to document and reproduce the current research workflow. Future versions may include corrections, refinements, additional validation, and improvements to usability and documentation.
