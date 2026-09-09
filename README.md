@@ -59,7 +59,15 @@ The three plant models share a common high-level architecture so that plant fide
 **Live 3D simulation:** Demonstration of the quadrotor simulation with real-time 3D trajectory visualization and live flight-state monitoring.
 
 
+
+
+https://github.com/user-attachments/assets/d4cd0f30-7b3f-41c5-a28b-6278058ded06
+
+
+
 **Simscape Multibody visualization:** Demonstration of the L3 physical model running in Simscape Multibody using Mechanics Explorer.
+
+https://github.com/user-attachments/assets/017d02ad-7967-41f0-a2cc-a38247139f43
 
 ---
 
