@@ -1,0 +1,2 @@
+ParameterPath,Label,Stage,BaselineValue,EffectiveValue,Multiplier,Log10Multiplier,Modified
+yaw.angle.Kp,Yaw Angle Kp,Yaw Angle,1.54325799886932,9.73729968814403,6.30957344480193,0.8,1

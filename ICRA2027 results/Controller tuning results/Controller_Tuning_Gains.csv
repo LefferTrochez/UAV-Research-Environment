@@ -1,0 +1,17 @@
+ParameterPath,Label,Stage,InitialValue,TunedValue,Multiplier,Log10Multiplier,Changed
+angularRate.roll.Kp,Angular Rate Roll Kp,Angular Rate Roll-Pitch,19.2002243650807,192.002243650807,10,1,1
+angularRate.roll.Ki,Angular Rate Roll Ki,Angular Rate Roll-Pitch,46.0612716698511,36.7166740442623,0.79712679900444,-0.0984725898612737,1
+angularRate.pitch.Kp,Angular Rate Pitch Kp,Angular Rate Roll-Pitch,21.3177382288701,116.955688320571,5.48630849412442,0.739280224254494,1
+angularRate.pitch.Ki,Angular Rate Pitch Ki,Angular Rate Roll-Pitch,51.1459146221014,324.349522335245,6.3416506427101,0.802202313357685,1
+angularRate.yaw.Kp,Angular Rate Yaw Kp,Angular Rate Yaw,51.3270796124145,513.270796124145,10,1,1
+angularRate.yaw.Ki,Angular Rate Yaw Ki,Angular Rate Yaw,35.2632466712924,48.9668949194481,1.38860994212742,0.142580270380147,1
+attitude.roll.Kp,Roll Attitude Kp,Roll-Pitch Attitude,2.57451421530582,16.2440865261587,6.30957344480193,0.8,1
+attitude.pitch.Kp,Pitch Attitude Kp,Roll-Pitch Attitude,2.53257843932999,15.9794896676744,6.30957344480193,0.8,1
+yaw.angle.Kp,Yaw Angle Kp,Yaw Angle,1.54325799886932,9.73729968814403,6.30957344480193,0.8,1
+vertical.velocity.Kp,Vertical Velocity Kp,Vertical Velocity,84.5531651518336,179.235177723946,2.11979264646202,0.326293381258197,1
+vertical.altitude.Kp,Vertical Position Kp,Vertical Position,0.701687023649447,0.29251183693788,0.416869383470335,-0.38,1
+horizontal.velocity.x.Kp,Horizontal Velocity X Kp,Horizontal Velocity,1.20388542874149,7.5960035317713,6.30957344480193,0.8,1
+horizontal.velocity.x.Kd,Horizontal Velocity X Kd,Horizontal Velocity,0.088419188646621,0.0432002687836558,0.488584768135698,-0.311060076490149,1
+horizontal.velocity.y.Kp,Horizontal Velocity Y Kp,Horizontal Velocity,1.58650303308876,3.19033518712145,2.01092284135769,0.303395407138038,1
+horizontal.position.north.Kp,Horizontal Position North Kp,Horizontal Position,0.792390454779961,1.57557404495821,1.98838089915625,0.298499582554428,1
+horizontal.position.east.Kp,Horizontal Position East Kp,Horizontal Position,0.3657,2.30741100876407,6.30957344480193,0.8,1

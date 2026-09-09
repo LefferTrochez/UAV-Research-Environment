@@ -1,0 +1,3 @@
+ParameterPath,Label,Stage,BaselineValue,EffectiveValue,Multiplier,Log10Multiplier,Modified
+horizontal.position.north.Kp,Horizontal Position North Kp,Horizontal Position,0.792390454779961,1.57557404495821,1.98838089915625,0.298499582554428,1
+horizontal.position.east.Kp,Horizontal Position East Kp,Horizontal Position,0.3657,2.30741100876407,6.30957344480193,0.8,1

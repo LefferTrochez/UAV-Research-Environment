@@ -1,0 +1,2 @@
+Mission,TrajectoryID,TrajectoryName,MissionStartTime_s,MetricWindowStart_s,MetricWindowEnd_s,MissionDuration_s,MetricWindowDuration_s,LandedConfirmed,MetricWindowComplete,MetricSamples,PositionRMSE_m,VelocityRMSE_m_s,AttitudeRMSE_deg,AngularRateRMSE_rad_s,AccelerationRMSE_m_s2
+1,1,ICRA Benchmark,5,5,67,62,62,1,1,12401,0.408010853790308,0.0842841097966221,0.113340648400475,0.00628265796454977,0.0898407642111664
