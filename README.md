@@ -50,7 +50,13 @@ The three plant models share a common high-level architecture so that plant fide
   <img src="figures/framework_overview.png" alt="Framework overview" width="900">
 </p>
 
+---
 
+### Custom Quadrotor Platform
+
+![Custom quadrotor platform](figures/custom_quadrotor.png)
+
+Custom quadrotor platform used as the common physical basis for the L1, L2, and L3 plant representations.
 
 ---
 
