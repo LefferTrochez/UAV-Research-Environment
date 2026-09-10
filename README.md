@@ -123,105 +123,92 @@ open_system('UAV_Research_Environment')
 Update the model with `Ctrl + D` if required, then press **Run**.
 
 ---
-
 ## Reproducibility and Technical Configuration
 
-The following configuration was used for the experiments reported in the
-paper.
+The following configuration was used for the experiments reported in the paper.
 
 ### Experimental Configuration
 
-  Item                       Configuration
-  -------------------------- ----------------------------------------
-  Primary campaign           L1(C1), L2(C1), L3(C2) × T1/T2 × D0/D1
-  Primary runs               12
-  Sensitivity runs           L3(C1) on T1-D1 and T2-D1
-  Simulation horizon         130 s
-  Control/estimation rate    200 Hz
-  GPS rate                   10 Hz
-  Magnetometer fusion rate   20 Hz
-  Barometer rate             20 Hz
+| Item | Configuration |
+|---|---|
+| Primary campaign | L1(C1), L2(C1), L3(C2) × T1/T2 × D0/D1 |
+| Primary runs | 12 |
+| Sensitivity runs | L3(C1) on T1-D1 and T2-D1 |
+| Simulation horizon | 130 s |
+| Control/estimation rate | 200 Hz |
+| GPS rate | 10 Hz |
+| Magnetometer fusion rate | 20 Hz |
+| Barometer rate | 20 Hz |
 
-T1 and T2 are defined in `UAV_trajectories.m`. Disturbance conditions
-and realizations are defined in `Environment.m`.
+T1 and T2 are defined in `UAV_trajectories.m`. Disturbance conditions and realizations are defined in `Environment.m`.
 
 ### Controller Configuration
 
 Two controller tunings are used:
 
--   **C1:** L1 and L2
--   **C2:** L3
--   **Sensitivity tests:** C1 is transferred unchanged to L3
+- **C1:** L1 and L2
+- **C2:** L3
+- **Sensitivity tests:** C1 is transferred unchanged to L3
 
-The numerical controller gains and common saturation limits are defined
-in `ICRA_experiment_config.m` and `UAV_autopilot.m`.
+The numerical controller gains and common saturation limits are defined in `ICRA_experiment_config.m` and `UAV_autopilot.m`.
 
 ### Estimation and Sensors
 
-State estimation uses an `insfilterMARG` Extended Kalman Filter in the
-NED reference frame, fusing accelerometer, gyroscope, magnetometer, GPS
-position/velocity, and barometer measurements.
+State estimation uses an `insfilterMARG` Extended Kalman Filter in the NED reference frame, fusing accelerometer, gyroscope, magnetometer, GPS position/velocity, and barometer measurements.
 
-Estimator and sensor parameters, including noise models, covariance
-tuning, sampling rates, initialization criteria, and random seeds, are
-defined in:
+Estimator and sensor parameters, including noise models, covariance tuning, sampling rates, initialization criteria, and random seeds, are defined in:
 
--   `UAV_state_estimator.m`
--   `UAV_sensors.m`
+- `UAV_state_estimator.m`
+- `UAV_sensors.m`
 
 ### Vehicle and Plant Parameters
 
 The authoritative model parameters are contained in:
 
-  File                 Configuration
-  -------------------- -----------------------------------------------
-  `UAV_analytical.m`   L1 rigid-body and rotor parameters
-  `UAV_block.m`        L2 block-model parameters
-  `UAV_simscape.m`     L3 physical/electrical parameters
-  `Environment.m`      Gravity, atmosphere, ground, and disturbances
+| File | Configuration |
+|---|---|
+| `UAV_analytical.m` | L1 rigid-body and rotor parameters |
+| `UAV_block.m` | L2 block-model parameters |
+| `UAV_simscape.m` | L3 physical/electrical parameters |
+| `Environment.m` | Gravity, atmosphere, ground, and disturbances |
 
-The three models represent the same reference quadrotor wherever their
-modeling formulations permit.
+The three models represent the same reference quadrotor wherever their modeling formulations permit.
 
 ### Solver and Computational Environment
 
-  Setting                 Value
-  ----------------------- -------------------------
-  MATLAB/Simulink         R2025a Update 1
-  Operating system        Windows 11
-  Computer                Dell Precision 3680
-  Processor               Intel Core i9-14900
-  Memory                  32 GB RAM
-  Solver                  `ode23t`, variable-step
-  Maximum step            `2e-3 s`
-  Relative tolerance      `1e-4`
-  Absolute tolerance      `1e-3`
-  Simscape local solver   OFF
-  Simulation mode         Normal
+| Setting | Value |
+|---|---|
+| MATLAB/Simulink | R2025a Update 1 |
+| Operating system | Windows 11 |
+| Computer | Dell Precision 3680 |
+| Processor | Intel Core i9-14900 |
+| Memory | 32 GB RAM |
+| Solver | `ode23t`, variable-step |
+| Maximum step | `2e-3 s` |
+| Relative tolerance | `1e-4` |
+| Absolute tolerance | `1e-3` |
+| Simscape local solver | OFF |
+| Simulation mode | Normal |
 
-Computational-cost measurements were performed with Fast Restart and
-simulation pacing disabled.
+Computational-cost measurements were performed with Fast Restart and simulation pacing disabled.
 
 ### Reproducing the Campaign
 
 The intended campaign interface is:
 
-``` matlab
+```matlab
 CFG = ICRA_experiment_config;
 CAMPAIGN = run_icra_campaign;
 ```
 
 For an individual experiment:
 
-``` matlab
+```matlab
 CFG = ICRA_experiment_config;
 RUN = run_icra_experiment(CFG,runNumber);
 ```
 
-The campaign configuration follows the paper mapping **C1 → L1/L2** and
-**C2 → L3**, with C1 transferred to L3 only for the two supplementary
-sensitivity runs.
-
+The campaign configuration follows the paper mapping **C1 → L1/L2** and **C2 → L3**, with C1 transferred to L3 only for the two supplementary sensitivity runs.
 
 ---
 
