@@ -123,7 +123,6 @@ open_system('UAV_Research_Environment')
 Update the model with `Ctrl + D` if required, then press **Run**.
 
 ---
-
 ## Reproducibility and Technical Configuration
 
 This section documents the configuration used for the experiments reported in the paper. Source files remain the authoritative implementation reference.
@@ -347,23 +346,25 @@ Sensor models are defined in `UAV_sensors.m`.
 | `UAV_simscape.m` | L3 physical/electrical model |
 | `Environment.m` | Gravity, atmosphere, ground, and disturbances |
 
-#### Common Physical Vehicle
+#### Shared UAV Parameters
 
-| Parameter | Value |
-|---|---|
-| Airframe mass | 1.408410 kg |
-| Propeller mass | 0.006887 kg each |
-| Number of propellers | 4 |
-| Total airframe + propeller mass | 1.435958 kg |
-| Propeller diameter | 0.2032 m = 8 in |
-| Mean horizontal CG-to-rotor arm | 0.182296 m |
-| `kT` | 0.10 |
-| `kP` | 0.05 |
-| `Ixx` | 0.00861159 kg·m² |
-| `Iyy` | 0.00938242 kg·m² |
-| `Izz` | 0.01076369 kg·m² |
+The shared platform values below match Table I of the paper.
 
-The implementation preserves the complete inertia tensor, including the small off-diagonal terms, in the authoritative model files.
+| Parameter | Symbol | Value | Unit |
+|---|---|---|---|
+| Wheelbase | `L` | 0.350 | m |
+| Airframe mass | `m_airframe` | 1.408410 | kg |
+| Propeller mass | `m_prop` | `6.887 × 10^-3` | kg |
+| Center of gravity | `r_CG` | `[0.000256, 0.044228, 0.001740]^T` | m |
+| Principal inertia | `J_d` | `[8.848, 9.706, 8.077]^T × 10^-3` | kg·m² |
+| Products of inertia | `J_p` | `[-72.41, -6.37, -12.34]^T × 10^-6` | kg·m² |
+| Propeller diameter | `D` | 0.127 | m |
+| Motor | — | Readytosky MT2204, 2300 KV | — |
+| Battery | — | 3S LiPo, 2200 mAh | — |
+| Nominal voltage | `V_nom` | 11.1 | V |
+| Rotor configuration | — | Quadrotor-X | — |
+
+Parameter provenance follows Table I: wheelbase is a platform specification; mass properties and inertia are CAD-derived; propeller, motor, battery, and nominal-voltage values are manufacturer specifications; and rotor configuration is a model/platform definition.
 
 #### L1 Rotor Parameters
 
@@ -378,31 +379,7 @@ L2 uses the corresponding block convention in `UAV_block.m`.
 
 #### L3 Physical Actuator Parameters
 
-| Parameter | Value |
-|---|---|
-| Wheelbase parameter | 0.350 m |
-| Motor count | 4 |
-| Motor `Kv` | 1300 rpm/V |
-| Motor max current | 45.1 A |
-| Motor max power | 1059 W |
-| Motor `Kt` | 0.0073456 N·m/A |
-| Motor max torque | 0.331287 N·m |
-| Speed-controller torque saturation | 0.25 N·m |
-| Torque-control time constant | 0.02 s |
-| Rotor inertia | `8.0e-7 kg·m²` |
-| Speed PI `Kp` | 0.00035 |
-| Speed PI `Ki` | 0.005 |
-| Drive efficiency | 90% |
-
-#### L3 Battery Model
-
-| Parameter | Value |
-|---|---|
-| Capacity | 3.3 Ah |
-| Nominal voltage | 22.2 V |
-| Fully charged voltage | 25.2 V |
-| Internal resistance | 0.020 Ω |
-| Initial SOC | 1.0 |
+L3 additionally includes the physical/electrical actuator chain. The shared motor and battery specifications follow Table I above; the complete L3 implementation parameters are defined in `UAV_simscape.m`.
 
 ### Trajectory Configuration
 
