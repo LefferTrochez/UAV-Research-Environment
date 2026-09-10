@@ -47,7 +47,7 @@ The framework integrates:
 The three plant models share a common high-level architecture so that plant fidelity can be changed without redesigning the complete control and evaluation workflow.
 
 <p align="center">
-  <img src="framework_overview.png" alt="Framework overview" width="900">
+  <img src="figures/framework_overview.png" alt="Framework overview" width="900">
 </p>
 
 
