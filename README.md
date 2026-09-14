@@ -89,9 +89,9 @@ The framework was developed and tested using **MATLAB R2025a** on Windows 11.
 - UAV Toolbox
 - Navigation Toolbox
 - Control System Toolbox
-- Global Optimization Toolbox
+- Statistics and Machine Learning Toolbox
 
-`Simscape` and `Simscape Multibody` are required for the L3 physical model, while `Global Optimization Toolbox` is used by the controller and estimator tuning workflows.
+`Simscape` and `Simscape Multibody` are required for the L3 physical model, `Global Optimization Toolbox` is used by the controller and estimator tuning workflows, and `Statistics and Machine Learning Toolbox` is used for the statistical analysis of the computational-cost results.
 
 ---
 
