@@ -1,4 +1,4 @@
-# UAV Research Environment: A Parameter-Consistent Multi-Fidelity Framework for Quadrotor Control Evaluation
+# UAV Research Environment: How Much Plant Fidelity Does Closed-Loop Quadrotor Evaluation Need? A Parameter-Consistent Study
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-v1.0--icra2027-blue" alt="Version" valign="middle">
@@ -21,7 +21,7 @@ The framework compares:
 
 The same reference vehicle, controller architecture, estimator, sensors, missions, disturbance conditions, and evaluation methodology are maintained across the plant models whenever possible.
 
-The objective is to study how model fidelity affects closed-loop evaluation results and computational cost.
+The objective is to determine when increased plant-model fidelity materially changes closed-loop engineering conclusions and whether the additional detail justifies its computational cost.
 
 ---
 
@@ -147,9 +147,11 @@ C1 is used for L1 and L2, while C2 is used for L3. In the two supplementary sens
 
 ### Controller Gains
 
+The values below are the frozen campaign gains used to produce the paper results.
+
 #### C1 — L1 and L2
 
-Tuning source: `Controller_Tuning_2026-09-04_20-48-43`.
+Campaign source: `FINAL_C1_FROZEN_2026-09-12`. Tuning artifacts: `ICRA2027 results/Controller_Tuning/Results_C1/Controller_Tuning_C1_2026-09-11_20-09-10`.
 
 | Loop | Type | Gains |
 |---|---|---|
@@ -159,31 +161,31 @@ Tuning source: `Controller_Tuning_2026-09-04_20-48-43`.
 | Body-Y velocity | P | `Kp = 0.957100556` |
 | Vertical position | P | `Kp = 0.292511837` |
 | Vertical velocity | P | `Kp = 179.235177724` |
-| Yaw angle | P | `Kp = 9.737299688` |
-| Roll attitude | P | `Kp = 16.244086526` |
-| Pitch attitude | P | `Kp = 15.979489668` |
+| Yaw angle | P | `Kp = 14.605949532` |
+| Roll attitude | P | `Kp = 19.699174304` |
+| Pitch attitude | P | `Kp = 23.969234502` |
 | Roll rate | PI | `Kp = 192.002243651`, `Ki = 36.716674044` |
 | Pitch rate | PI | `Kp = 116.955688321`, `Ki = 324.349522335` |
 | Yaw rate | PI | `Kp = 513.270796124`, `Ki = 48.966894919` |
 
 #### C2 — L3
 
-Tuning source: `Controller_Tuning_2026-09-06_23-55-42`.
+Campaign source: `FINAL_C2_L3_VALIDATED_2026-09-11`. Tuning artifacts: `ICRA2027 results/Controller_Tuning/Results_C2/Controller_Tuning_C2_2026-09-12_19-23-03`.
 
 | Loop | Type | Gains |
 |---|---|---|
-| North position | P | `Kp = 0.6302` |
-| East position | P | `Kp = 0.9230` |
-| Body-X velocity | PD | `Kp = 2.4273`, `Kd = 0.0044`, `N = 1.8902` |
-| Body-Y velocity | P | `Kp = 6.0389` |
-| Vertical position | P | `Kp = 1.8456` |
-| Vertical velocity | P | `Kp = 253.1800` |
-| Yaw angle | P | `Kp = 9.7373` |
-| Roll attitude | P | `Kp = 6.4669` |
-| Pitch attitude | P | `Kp = 6.3615` |
-| Roll rate | PI | `Kp = 19.2000`, `Ki = 26.4700` |
-| Pitch rate | PI | `Kp = 11.6960`, `Ki = 201.5600` |
-| Yaw rate | PI | `Kp = 458.1200`, `Ki = 30.9870` |
+| North position | P | `Kp = 0.630229618` |
+| East position | P | `Kp = 0.922964404` |
+| Body-X velocity | PD | `Kp = 2.278801060`, `Kd = 0.012960081`, `N = 1.890174530` |
+| Body-Y velocity | P | `Kp = 0.957100556` |
+| Vertical position | P | `Kp = 0.292511837` |
+| Vertical velocity | P | `Kp = 179.235177724` |
+| Yaw angle | P | `Kp = 14.605949532` |
+| Roll attitude | P | `Kp = 5.000000000` |
+| Pitch attitude | P | `Kp = 23.969234502` |
+| Roll rate | PI | `Kp = 20.000000000`, `Ki = 36.105000000` |
+| Pitch rate | PI | `Kp = 22.9527`, `Ki = 22.0677` |
+| Yaw rate | PI | `Kp = 513.270796124`, `Ki = 48.966894919` |
 
 Campaign gains are defined in `ICRA_experiment_config.m`. Common controller architecture and limits are defined in `UAV_autopilot.m`.
 
@@ -206,28 +208,28 @@ Campaign gains are defined in `ICRA_experiment_config.m`. Common controller arch
 |---|---|
 | Control frequency | 200 Hz |
 | Controller sample time | 0.005 s |
-| Horizontal velocity | ±1.0 m/s |
-| Vertical velocity | ±0.6 m/s |
+| Horizontal velocity | ±1.40 m/s |
+| Vertical velocity | ±0.80 m/s |
 | Horizontal acceleration | ±3.0 m/s² |
 | Maximum tilt | ±20° |
-| Yaw-rate reference | ±60°/s = ±1.0472 rad/s |
-| Roll/pitch rate reference | ±60°/s = ±1.0472 rad/s |
-| Roll/pitch rate-controller output | ±20 rad/s |
-| Yaw rate-controller output | ±100 rad/s |
-| Vertical velocity-controller output | ±300 rad/s |
+| Yaw-rate reference | ±90°/s = ±1.5708 rad/s |
+| Roll/pitch rate reference | ±90°/s = ±1.5708 rad/s |
+| Roll/pitch rate-controller output | ±18% of motor control headroom |
+| Yaw rate-controller output | ±14% of motor control headroom |
+| Vertical velocity-controller output | ±40% of motor control headroom |
 | Rate PI integrators | ±0.2 |
 | Horizontal velocity integrator | ±0.2 |
 | Vertical integrator | ±0.1 |
 | Generic derivative coefficient | `N = 100` |
 | Motor minimum command | 0 rad/s |
-| Common motor maximum | `Inf` |
+| Physical motor maximum | ≈3022.21 rad/s (`1300 KV`, `22.2 V`) |
 | Armed idle | 10% of hover rotor speed |
 
 ### Estimator Configuration
 
 The estimator is an `insfilterMARG` Extended Kalman Filter (EKF) in the NED reference frame. It fuses accelerometer, gyroscope, magnetometer, GPS position, GPS velocity, and barometer measurements. The implementation is defined in `UAV_state_estimator.m`.
 
-Final tuning source: `TUNED_300EVAL_2026_09_04`.
+Final tuning source: `ICRA2027 results/Estimator_Tuning/EKF_Tuning_2026-09-04_22-19-55` (`TUNED_300EVAL_2026_09_04`).
 
 | Parameter | Value |
 |---|---|
@@ -355,16 +357,16 @@ The shared platform values below match Table I of the paper.
 
 | Parameter | Symbol | Value | Unit |
 |---|---|---|---|
-| Wheelbase | `L` | 0.350 | m |
+| Wheelbase | `L` | 0.36458 | m |
 | Airframe mass | `m_airframe` | 1.408410 | kg |
 | Propeller mass | `m_prop` | `6.887 × 10^-3` | kg |
-| Center of gravity | `r_CG` | `[0.000256, 0.044228, 0.001740]^T` | m |
+| Center of gravity | `r_CG^FRD` | `[0.001740, -0.000256, -0.044228]^T` | m |
 | Principal inertia | `J_d` | `[8.848, 9.706, 8.077]^T × 10^-3` | kg·m² |
 | Products of inertia | `J_p` | `[-72.41, -6.37, -12.34]^T × 10^-6` | kg·m² |
 | Propeller diameter | `D` | 0.127 | m |
-| Motor | — | Readytosky MT2204, 2300 KV | — |
-| Battery | — | 3S LiPo, 2200 mAh | — |
-| Nominal voltage | `V_nom` | 11.1 | V |
+| Motor speed constant | `K_V` | 1300 | rpm/V |
+| Battery | — | 6S LiPo | — |
+| Nominal voltage | `V_nom` | 22.2 | V |
 | Rotor configuration | — | Quadrotor-X | — |
 
 Parameter provenance follows Table I: wheelbase is a platform specification; mass properties and inertia are CAD-derived; propeller, motor, battery, and nominal-voltage values are manufacturer specifications; and rotor configuration is a model/platform definition.
@@ -373,20 +375,22 @@ Parameter provenance follows Table I: wheelbase is a platform specification; mas
 
 | Parameter | Value |
 |---|---|
-| `cT` | `5.29019e-6 N/(rad/s)²` |
-| `cQ` | `8.55431e-8 N·m/(rad/s)²` |
+| Dimensionless thrust coefficient `kT` | `0.10` |
+| Dimensionless power/torque coefficient `kP` | `0.05` |
+| `cT` | `kT·ρ_ref·D^4/(4π²)` ≈ `6.216e-7 N/(rad/s)²` at the reference environment |
+| `cQ` | `kP·ρ_ref·D^5/(8π³)` ≈ `6.282e-9 N·m/(rad/s)²` at the reference environment |
 | Rotor actuator time constant | 0 s |
 | Actuator model | Ideal rotor speed |
 
-L2 uses the corresponding block convention in `UAV_block.m`.
+L2 uses the equivalent Aerospace Blockset convention in `UAV_block.m`, with `C_T = 4kT/π³` and `C_Q = 4kP/π⁴`.
 
 #### L3 Physical Actuator Parameters
 
-L3 additionally includes the physical/electrical actuator chain. The shared motor and battery specifications follow Table I above; the complete L3 implementation parameters are defined in `UAV_simscape.m`.
+L3 additionally includes the physical/electrical actuator chain. The final model uses a `1300 KV` motor specification and a `6S`, `22.2 V`, `3.3 Ah` LiPo battery model. Motor/ESC dynamics, drive limits, battery parameters, propeller parameters, multibody mechanics, aerodynamic forces/moments, and physical ground contact are defined in `UAV_simscape.m`.
 
 ### Trajectory Configuration
 
-T1 and T2 are defined in `UAV_trajectories.m`. Both use `passThroughIntermediate = false`.
+T1 and T2 are defined in `UAV_trajectories.m`. Both use `passThroughIntermediate = true`.
 
 #### T1 — ICRA Benchmark
 
@@ -505,6 +509,41 @@ The fixed disturbance realization is defined in `Environment.m`.
 | Fast Restart for computational-cost measurements | OFF |
 | Simulation pacing for computational-cost measurements | OFF |
 
+### Computational-Cost Statistical Analysis
+
+Computational cost was evaluated with the dedicated `run_icra_timing_statistics.m` workflow using the same 12 primary L1/L2/L3 configurations reported in the paper.
+
+| Setting | Value |
+|---|---|
+| Repetitions per configuration | 10 |
+| Primary configurations | 12 |
+| Measured simulations | 120 |
+| Warm-up | 1 run per fidelity block, excluded from statistics |
+| Scenario order | Randomized within each repetition |
+| Random seed | 2027 |
+| Primary inferential test | Welch two-sample t-test on `log(execution time)` |
+| Multiple-comparison correction | Holm |
+| Confidence level | 95% |
+| Variance diagnostic | Brown-Forsythe on log execution time |
+| Nonparametric sensitivity check | Rank-sum test with Holm correction |
+
+Execution time excludes initialization and post-processing. Simulation pacing and Fast Restart are disabled for the timing measurements. `RTF = simulated duration / wall-clock execution time`, so `RTF > 1` denotes faster-than-real-time execution.
+
+Across the four trajectory/disturbance scenarios, mean execution-time ranges were **4.533–6.967 s for L1**, **5.753–9.238 s for L2**, and **51.788–88.496 s for L3**. The corresponding mean RTF ranges were **18.667–28.684**, **14.074–22.600**, and **1.470–2.510**, respectively.
+
+| Scenario | Comparison | L3 slowdown | 95% CI | Holm-adjusted Welch p-value |
+|---|---|---:|---|---:|
+| T1/D0 | L1 vs. L3 | 11.25× | `[11.04, 11.45]` | `9.97e-24` |
+| T1/D0 | L2 vs. L3 | 9.00× | `[8.93, 9.08]` | `2.05e-38` |
+| T1/D1 | L1 vs. L3 | 10.05× | `[9.91, 10.20]` | `1.22e-24` |
+| T1/D1 | L2 vs. L3 | 7.57× | `[7.52, 7.61]` | `1.15e-35` |
+| T2/D0 | L1 vs. L3 | 14.29× | `[14.13, 14.45]` | `1.98e-36` |
+| T2/D0 | L2 vs. L3 | 10.60× | `[10.50, 10.69]` | `6.83e-38` |
+| T2/D1 | L1 vs. L3 | 12.70× | `[12.44, 12.97]` | `6.75e-32` |
+| T2/D1 | L2 vs. L3 | 9.58× | `[9.40, 9.75]` | `1.22e-24` |
+
+All planned L1/L2-versus-L3 comparisons remain significant after Holm correction (`p < 0.001`), confirming a repeatable increase in computational cost with fidelity under the common solver and hardware configuration.
+
 ### Reproducing the Campaign
 
 The intended campaign interface is:
@@ -521,24 +560,71 @@ CFG = ICRA_experiment_config;
 RUN = run_icra_experiment(CFG,runNumber);
 ```
 
-The campaign mapping is **C1 → L1/L2** and **C2 → L3**. C1 is transferred unchanged to L3 only for the two supplementary T1-D1 and T2-D1 sensitivity runs.
+The full repository campaign runner executes the frozen **24-run all-to-all design** (`C1/C2 × T1/T2 × L1/L2/L3 × D0/D1`). The paper's primary analysis uses the 12-run subset **L1(C1), L2(C1), L3(C2) × T1/T2 × D0/D1**. C1 is additionally transferred unchanged to L3 for the two supplementary T1-D1 and T2-D1 sensitivity runs.
+
+### Real-Flight Data Processing and Comparison
+
+Real-flight data were recorded by **QGroundControl** from an **ArduPilot** autopilot in MAVLink `.tlog` format. Two flights reproduce the waypoint geometry used by the simulation trajectories:
+
+```text
+Trajectory_1.tlog  ->  T1
+Trajectory_2.tlog  ->  T2
+```
+
+The complete processing workflow is executed by:
+
+```matlab
+REAL_BATCH_SUMMARY = run_real_flight_analysis;
+```
+
+The pipeline imports the MAVLink logs, extracts available signals, normalizes them to the framework conventions, prepares metrics, recovers available ArduPilot parameters, and generates the real-flight figures and tables.
+
+| Item | Configuration |
+|---|---|
+| Log source | QGroundControl MAVLink TLOG |
+| Autopilot | ArduPilot |
+| Navigation frame | NED |
+| Body frame | FRD |
+| Body axes | `+X` Forward, `+Y` Right, `+Z` Down |
+| Position/velocity source | MAVLink `GLOBAL_POSITION_INT` / GPS-derived data |
+| Attitude/body-rate source | MAVLink `ATTITUDE` |
+| Position normalization | WGS84/global position converted to local NED relative to the inferred HOME reference |
+| T1 comparison trim | 0 s |
+| T2 comparison trim | Remove the first 13 s of the retained real-flight window, then re-zero time; no time scaling |
+| Units | SI wherever possible |
+| Autopilot parameters | `PARAM_VALUE` when available |
+
+When available in the log, the processing pipeline recovers ArduPilot parameters including `FRAME_CLASS`, `FRAME_TYPE`, `SERVOx_FUNCTION`, `SERVOx_MIN/MAX/TRIM/REVERSED`, `MOT_PWM_MIN/MAX`, `MOT_SPIN_ARM`, `MOT_SPIN_MIN`, and `MOT_THST_EXPO` before interpreting actuator outputs.
+
+The real-flight data are used as an **external consistency check**, not as physical ground truth for the L1–L3 models. Simulated metrics use the TAKEOFF–CGS COMPLETE window, while real-flight metrics use the retained telemetry window; therefore, the comparison focuses on trajectory- and state-level magnitudes rather than pointwise time alignment.
+
+| Flight | Path length [m] | Roll RMS [deg] | Pitch RMS [deg] | `p` RMS [rad/s] | `q` RMS [rad/s] | `r` RMS [rad/s] | Duration [s] |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| T1/REAL | 27.6 | 3.56 | 2.86 | 0.0896 | 0.0759 | 0.455 | 35.4 |
+| T2/REAL | 33.5 | 1.96 | 2.79 | 0.1400 | 0.1438 | 0.459 | 57.7 |
+
+The real-flight comparison does not identify one fidelity level as uniformly closest: roll RMS is generally closer to L3, pitch RMS is closer to L1/L2, and agreement across body-rate components is mixed.
 
 
 ---
 
 ## Study Summary and Main Finding
 
-This framework was developed to investigate whether increasing plant-model fidelity changes controller-evaluation conclusions when the rest of the benchmark is kept as consistent as possible.
+This framework was developed to determine when increasing plant-model fidelity materially changes closed-loop quadrotor evaluation conclusions and whether the additional model detail justifies its computational cost.
 
-Three progressively more detailed plant models were implemented and evaluated within the same MATLAB/Simulink environment using a common control, estimation, sensing, mission, and analysis architecture.
+Across T1 and T2 under nominal and disturbed conditions, L1 and L2 remain closely aligned in trajectory-level behavior, while L3 preserves comparable translational tracking but exhibits distinct rotational behavior, particularly in pitch and body-rate tracking, under the evaluated tuning.
+
+The L3-specific C2 tuning substantially improves the L3 rotational response relative to transferring C1 unchanged, showing that the observed differences reflect an interaction between plant representation and controller tuning rather than an intrinsic consequence of fidelity alone.
+
+The repeated computational-cost analysis shows that L3 is approximately **7.6–14.3× slower** than L1/L2 across the evaluated scenarios, with all Holm-adjusted Welch-test p-values below `0.001`. The real-flight consistency check further shows that no single fidelity level is uniformly closer to the measured flight quantities.
 
 The main conclusion is:
 
-> **The appropriate simulation fidelity is task-dependent. Higher fidelity is not automatically the best choice for every controller-evaluation problem.**
+> **Simulation fidelity should be selected according to the quantity of interest. Higher complexity is justified when it materially changes the closed-loop engineering conclusion and warrants the associated computational cost.**
 
-Lower-fidelity models are useful for fast controller development, tuning, repeated testing, and large simulation campaigns. Higher-fidelity models become more valuable when the evaluation depends on physical effects that are not represented by simpler models, such as actuator dynamics, electrical behavior, multibody effects, or detailed ground interaction.
+For the moderate operating envelope evaluated here, lower-fidelity models support several trajectory-level conclusions at substantially lower computational cost. Additional physical detail becomes more relevant when rotational dynamics, particularly pitch and body-rate response, are quantities of interest.
 
-The purpose of the framework is therefore not to identify one universally superior model, but to support systematic evaluation of when additional physical fidelity provides enough value to justify its additional computational cost.
+The purpose of the framework is therefore not to identify one universally superior model, but to support systematic, task-dependent selection of plant-model fidelity.
 
 ---
 
