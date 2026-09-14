@@ -1,0 +1,2 @@
+Mission,TrajectoryID,TrajectoryName,MissionStartTime_s,MetricWindowStart_s,MetricWindowEnd_s,MissionDuration_s,MetricWindowDuration_s,LandedConfirmed,MetricWindowComplete,MetricSamples,PositionRMSE_m,VelocityRMSE_m_s,AttitudeRMSE_deg,AngularRateRMSE_rad_s,AccelerationRMSE_m_s2
+1,2,High-Dynamics Mission,5,5,49.295,44.295,44.295,1,1,8860,0.350039875326572,0.0878561461989483,0.084601345192744,0.00626314002859466,0.0892809158253985

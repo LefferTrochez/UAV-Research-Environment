@@ -1,0 +1,17 @@
+ParameterPath,Label,Stage,InitialValue,TunedValue,Multiplier,Log10Multiplier,Changed
+angularRate.roll.Kp,Angular Rate Roll Kp,Angular Rate Roll-Pitch,20,20,1,0,0
+angularRate.roll.Ki,Angular Rate Roll Ki,Angular Rate Roll-Pitch,36.105,36.105,1,0,0
+angularRate.pitch.Kp,Angular Rate Pitch Kp,Angular Rate Roll-Pitch,34.026,22.9527460744411,0.674564923130579,-0.170976245546603,1
+angularRate.pitch.Ki,Angular Rate Pitch Ki,Angular Rate Roll-Pitch,114.83,22.0677087256894,0.192177207399542,-0.716298121805803,1
+angularRate.yaw.Kp,Angular Rate Yaw Kp,Angular Rate Yaw,513.270796124145,513.270796124145,1,0,0
+angularRate.yaw.Ki,Angular Rate Yaw Ki,Angular Rate Yaw,48.9668949194481,48.9668949194481,1,0,0
+attitude.roll.Kp,Roll Attitude Kp,Roll-Pitch Attitude,5,5,1,0,0
+attitude.pitch.Kp,Pitch Attitude Kp,Roll-Pitch Attitude,23.9692345015116,23.9692345015116,1,0,0
+yaw.angle.Kp,Yaw Angle Kp,Yaw Angle,14.605949532216,14.605949532216,1,0,0
+vertical.velocity.Kp,Vertical Velocity Kp,Vertical Velocity,179.235177723946,179.235177723946,1,0,0
+vertical.altitude.Kp,Vertical Position Kp,Vertical Position,0.29251183693788,0.29251183693788,1,0,0
+horizontal.velocity.x.Kp,Horizontal Velocity X Kp,Horizontal Velocity,2.27880105953139,2.27880105953139,1,0,0
+horizontal.velocity.x.Kd,Horizontal Velocity X Kd,Horizontal Velocity,0.0129600806350967,0.0129600806350967,1,0,0
+horizontal.velocity.y.Kp,Horizontal Velocity Y Kp,Horizontal Velocity,0.957100556136435,0.957100556136435,1,0,0
+horizontal.position.north.Kp,Horizontal Position North Kp,Horizontal Position,0.630229617983284,0.630229617983284,1,0,0
+horizontal.position.east.Kp,Horizontal Position East Kp,Horizontal Position,0.922964403505628,0.922964403505628,1,0,0

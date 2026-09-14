@@ -1,0 +1,4 @@
+ParameterPath,Label,Stage,BaselineValue,EffectiveValue,Multiplier,Log10Multiplier,Modified
+horizontal.velocity.x.Kp,Horizontal Velocity X Kp,Horizontal Velocity,2.27880105953139,2.27880105953139,1,0,0
+horizontal.velocity.x.Kd,Horizontal Velocity X Kd,Horizontal Velocity,0.0129600806350967,0.0129600806350967,1,0,0
+horizontal.velocity.y.Kp,Horizontal Velocity Y Kp,Horizontal Velocity,0.957100556136435,0.957100556136435,1,0,0

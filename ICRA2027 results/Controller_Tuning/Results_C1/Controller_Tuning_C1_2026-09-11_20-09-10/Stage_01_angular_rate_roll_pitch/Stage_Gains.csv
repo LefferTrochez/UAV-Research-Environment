@@ -1,0 +1,5 @@
+ParameterPath,Label,Stage,BaselineValue,EffectiveValue,Multiplier,Log10Multiplier,Modified
+angularRate.roll.Kp,Angular Rate Roll Kp,Angular Rate Roll-Pitch,192.002243650807,192.002243650807,1,0,0
+angularRate.roll.Ki,Angular Rate Roll Ki,Angular Rate Roll-Pitch,36.7166740442623,36.7166740442623,1,0,0
+angularRate.pitch.Kp,Angular Rate Pitch Kp,Angular Rate Roll-Pitch,116.955688320571,116.955688320571,1,0,0
+angularRate.pitch.Ki,Angular Rate Pitch Ki,Angular Rate Roll-Pitch,324.349522335245,324.349522335245,1,0,0

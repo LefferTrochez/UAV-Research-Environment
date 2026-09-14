@@ -1,0 +1,4 @@
+Level,Mean execution time [s],Mean Path RMSE discrepancy [%],Mean Body-rate RMSE discrepancy [%],Mean Rotor-speed command discrepancy [%]
+L1,5.754775,1.4279272539179533,82.39030176483685,0.4090704597067142
+L2,7.572325,3.257075880224857,78.35872277080695,0.4060724838964455
+L3,68.637000,0.0,0.0,0.0

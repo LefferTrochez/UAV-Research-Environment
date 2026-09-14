@@ -1,0 +1,4 @@
+StageID,StageName,Accepted,BaselineCost,BestSerialCost,OptimizationImprovement_percent,StageValidationPerformed,MissionValidationPerformed,MissionValidationCost,MissionSafetyPass,MissionCostPass,WorstPlantPass,OptimizationTime_min,Decision
+1,Pitch Angular Rate,1,1,0.870778066107436,12.9221933892564,0,1,0.978704321581888,1,1,1,13.5892462083333,ACCEPTED_AND_FROZEN
+2,Pitch Attitude,0,1,0.338774967151847,66.1225032848153,0,1,1.06440769038549,0,0,0,6.70624600833333,REJECTED_BASELINE_KEPT
+3,Joint Roll-Pitch Refinement,0,1,0.76972310499941,23.027689500059,0,1,1.04257719170696,0,0,0,16.5929009116667,REJECTED_BASELINE_KEPT

@@ -1,0 +1,2 @@
+ParameterPath,Label,Stage,BaselineValue,EffectiveValue,Multiplier,Log10Multiplier,Modified
+attitude.pitch.Kp,Pitch Attitude Kp,Roll-Pitch Attitude,23.9692345015116,23.9692345015116,1,0,0
