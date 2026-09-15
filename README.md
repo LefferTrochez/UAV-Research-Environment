@@ -71,6 +71,12 @@ https://github.com/user-attachments/assets/d6790151-9e39-4fb8-8c10-a079a4a77ccb
 
 https://github.com/user-attachments/assets/7224ec8a-1ad8-4c33-ae24-2b3d28b6e54e
 
+**Real quadrotor flight:** Experimental flight demonstration of the physical quadrotor used for the real-flight reference, following the trajectory evaluated against the simulation results.
+
+
+
+https://github.com/user-attachments/assets/63337dcb-2dec-4597-afe0-76ff05fda223
+
 
 ---
 
